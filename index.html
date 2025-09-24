@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASH PREDICTION 🏏</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                        url('logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #1e90ff;
+            margin: 0 auto;
+            box-shadow: 0 0 35px rgba(30, 144, 255, 0.8);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 25px rgba(30, 144, 255, 0.7);
+            }
+            to {
+                box-shadow: 0 0 45px rgba(30, 144, 255, 0.9), 0 0 80px rgba(30, 144, 255, 0.6);
+            }
+        }
+
+        .brand-name {
+            font-size: 3.5rem;
+            margin-top: 20px;
+            color: #1e90ff;
+            text-shadow: 0 0 15px rgba(30, 144, 255, 0.7);
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cricket-emoji {
+            font-size: 2.5rem;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .subscribers {
+            font-size: 1.5rem;
+            margin: 15px 0 30px;
+            color: #f8f8f8;
+            /* background: rgba(0, 0, 0, 0.6); */
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            /* border: 2px solid #1e90ff; */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            /* background: rgba(0, 0, 0, 0.7); */
+            padding: 25px 20px;
+            border-radius: 20px;
+            width: 220px;
+            /* border: 2px solid #1e90ff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); */
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e90ff;
+            margin-bottom: 10px;
+            /* text-shadow: 0 0 10px rgba(30, 144, 255, 0.6); */
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+            color: #f8f8f8;
+            font-weight: 600;
+        }
+
+        .features {
+            /* background: rgba(0, 0, 0, 0.7); */
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            /* border: 2px solid #1e90ff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); */
+        }
+
+        .feature {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .highlight {
+            color: #1e90ff;
+            font-weight: 700;
+        }
+
+        .timer-container {
+            margin: 35px 0;
+            padding: 25px;
+            /* background: rgba(0, 0, 0, 0.8); */
+            border-radius: 20px;
+            /* border: 3px solid #1e90ff; */
+            animation: pulse 2s infinite;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+        }
+
+        .timer-text {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #f8f8f8;
+            font-weight: 600;
+        }
+
+        .timer {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e90ff;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 20px rgba(30, 144, 255, 0.8);
+            letter-spacing: 3px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 0px 0;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeInUp 0.8s forwards;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: 280px;
+        }
+
+        .btn-telegram {
+            background: linear-gradient(45deg, #0088cc, #0055cc);
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.5);
+        }
+
+        .btn-join {
+            background: linear-gradient(45deg, #1e90ff, #0066cc);
+            color: white;
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.5);
+        }
+
+        .btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .brand-name {
+                font-size: 2.8rem;
+            }
+            
+            .logo {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .timer {
+                font-size: 3rem;
+            }
+            
+            .btn {
+                font-size: 1.2rem;
+                padding: 16px 30px;
+                min-width: 250px;
+            }
+            
+            .stat-card {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .timer {
+                font-size: 2.8rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .subscribers {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            
+            .timer {
+                font-size: 2.5rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                font-size: 1.1rem;
+                padding: 15px 25px;
+            }
+            
+            .stat-number {
+                font-size: 2.3rem;
+            }
+            
+            .features {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="YASH PREDICTION Logo" class="logo">
+            <h1 class="brand-name">YASH PREDICTION 🏏</h1>
+        </div>
+        
+        <div class="subscribers"><i class="fas fa-users"></i> 38,252 subscribers</div>
+        
+        <div class="buttons">
+            <a href="https://t.me/+IFETE8BJ73c5MWE1" class="btn btn-telegram" style="animation-delay: 0.2s">
+                <i class="fab fa-telegram"></i> Join [YASH PREDICTION 🏏] Channel
+            </a>
+        </div>
+
+        <div class="timer-container">
+            <div class="timer-text">Limited Time Offer Ends In:</div>
+            <div class="timer" id="timer">01:00</div>
+        </div>
+        
+    </div>
+
+    <script>
+        // 60-second timer
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                // Add pulse animation when timer reaches last 10 seconds
+                if (timer <= 10) {
+                    display.style.animation = 'pulse 0.8s infinite';
+                    display.style.color = '#ffcccc';
+                }
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "00:00";
+                    display.style.animation = '';
+                    // You can add code here to execute when timer reaches 0
+                }
+            }, 1000);
+        }
+
+        // Button hover and click effects
+        function setupButtons() {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                // Hover effect
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.6)';
+                });
+                
+                // Mouse leave effect
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.5)';
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        window.onload = function () {
+            const sixtySeconds = 60,
+                display = document.querySelector('#timer');
+            startTimer(sixtySeconds, display);
+            setupButtons();
+            
+            // Animate buttons in sequence
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach((btn, index) => {
+                btn.style.animationDelay = `${index * 0.2 + 0.2}s`;
+            });
+        };
+    </script>
+</body>
+</html>
